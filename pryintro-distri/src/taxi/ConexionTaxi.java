@@ -16,6 +16,7 @@ public class ConexionTaxi{
                 System.out.println("1. Obtener el número de columnas");
                 System.out.println("2. Obtener el número de filas");
                 System.out.println("3. Obtener coordenadas del Taxi en la matriz");
+                System.out.println("4. Ubicar Taxi en la Matriz");
                 System.out.println("7. Salir");
                 Scanner scan = new Scanner(System.in);
                 Taxi taxi = new Taxi("T1", 0, 0, 1);
