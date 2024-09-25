@@ -26,6 +26,9 @@ public class ImplementacionServidor extends UnicastRemoteObject implements Inter
         System.out.println("El número de columnas es: "+numcolumnas);
         for(int i = 0; i<this.numcolumnas; i++){
             matriz.add(new ArrayList<>());
+            for(int j = 0; j<this.numfilas; j++){
+                matriz.get(i).add("");
+            }
         }
         return this.numcolumnas;
     }
