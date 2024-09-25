@@ -7,6 +7,7 @@ import taxi.Taxi;
 
 public class ImplementacionServidor extends UnicastRemoteObject implements InterfazServidor{
     ArrayList<ArrayList<String>> matriz = new ArrayList<ArrayList<String>>();
+    ArrayList<Taxi> taxis = new ArrayList<>();
     public int numfilas = -1;
     public int numcolumnas = -1;
     public int posX;
@@ -53,7 +54,8 @@ public class ImplementacionServidor extends UnicastRemoteObject implements Inter
         return this.posY;
     }
     //Resultados por recibir
-    public Taxi coorTaxi(Taxi taxi) throws RemoteException{
+    public Taxi coorTaxi(Taxi taxi, ArrayList<Taxi> listataxis) throws RemoteException{
+        taxis = listataxis;
         System.out.println("*********************************************************");
         System.out.println("Coordenadas del Taxi "+ taxi.getId() + ": ["+taxi.getPosx()+ ", "+ taxi.getPosy()+"]");
         System.out.println("*********************************************************");
@@ -79,10 +81,19 @@ public class ImplementacionServidor extends UnicastRemoteObject implements Inter
             }
         }
         System.out.println("");
+        for(int i = 0; i<taxis.size(); i++){
+            Taxi taxii = taxis.get(i);
+            if(taxii.getId().equals(taxi.getId())){
+                taxis.add(i, taxi);
+            }
+        }
         return taxi;
+
     }
-    public boolean crearTaxi() throws RemoteException{
-        
-        return true;
+
+    public void imprimirTaxis() throws RemoteException{
+        for(Taxi taxi:taxis){
+            System.out.print("Taxi: "+taxi.getId()+" Coordenadas: ["+taxi.getPosx()+ ", "+ taxi.getPosy()+"]");
+        }
     }
 }

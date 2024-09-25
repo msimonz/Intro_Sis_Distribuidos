@@ -19,7 +19,7 @@ public class ConexionTaxi{
                 System.out.println("Bienvenido a Amarillitos, escoja una de las siguientes opciones:");
                 System.out.println("1. Obtener el Tamaño de la Matriz");
                 System.out.println("2. Crear un Taxi");
-                System.out.println("4. /////");
+                System.out.println("4. Imprimir taxis");
                 System.out.println("7. Salir");
                 Scanner scan = new Scanner(System.in);
                 opcion = scan.nextInt();
@@ -41,14 +41,14 @@ public class ConexionTaxi{
                         int posy = serverIn.posTaxiY();
                         int velocidad = 0;
                         Taxi nuevo = new Taxi(id, posx, posy, velocidad);
-                        nuevo = serverIn.coorTaxi(nuevo);
+                        nuevo = serverIn.coorTaxi(nuevo, taxis);
                         System.out.println("*********************************************************");
                         System.out.println("Las coordenadas del taxi son: ["+nuevo.getPosx()+", "+nuevo.getPosy()+"].");
                         System.out.println("*********************************************************");
                         taxis.add(nuevo);
                     }
                     case 4 ->{
-                        System.out.println("Enviando coordenadas al servidor...");
+                        serverIn.imprimirTaxis();
                     }
                 }
             } while(opcion != 7);
