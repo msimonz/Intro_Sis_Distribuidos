@@ -21,11 +21,11 @@ public class ConexionTaxi{
                 switch(opcion){
                     case 1 ->{
                         opcion = serverIn.columnasMatriz();
-                        System.out.println(opcion);
+                        System.out.println("Numero de columnas: "+ opcion);
                     }
                     case 2 ->{
                         opcion = serverIn.filasMatriz();
-                        System.out.println(opcion);
+                        System.out.println("Número de filas: "+opcion);
                     }
                 }
             } while(opcion != 3);
