@@ -8,7 +8,7 @@ public class ConexionTaxi{
     public static void main(String[] args){
         int opcion = 0;
         try{
-            Registry myRegistry = LocateRegistry.getRegistry("192.168.0.46", 1099);
+            Registry myRegistry = LocateRegistry.getRegistry("192.168.0.16", 1099);
             InterfazServidor serverIn = (InterfazServidor) myRegistry.lookup("InterfazServidor");
             System.out.println("Conexión al Servidor establecida correctamente");
             do{
