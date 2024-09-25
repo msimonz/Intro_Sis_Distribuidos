@@ -35,7 +35,7 @@ public class ImplementacionServidor extends UnicastRemoteObject implements Inter
             for(int i = 0; i<this.numcolumnas; i++){
                 matriz.add(new ArrayList<>());
                 for(int j = 0; j<this.numfilas; j++){
-                    matriz.get(i).add("");
+                    matriz.get(i).add("*");
                 }
             }
             return this.numcolumnas;
@@ -53,23 +53,32 @@ public class ImplementacionServidor extends UnicastRemoteObject implements Inter
         return this.posY;
     }
     //Resultados por recibir
-    public void coorTaxi(String id) throws RemoteException{
-        System.out.println("Coordenadas del Taxi "+ id + ": ["+this.posX+ ", "+ this.posY+"]");
-        this.matriz.get(this.posY).set(this.posX, id);
-        System.out.println(this.matriz.get(this.posY).get(this.posX));
+    public Taxi coorTaxi(Taxi taxi) throws RemoteException{
+        System.out.println("*********************************************************");
+        System.out.println("Coordenadas del Taxi "+ taxi.getId() + ": ["+taxi.getPosx()+ ", "+ taxi.getPosy()+"]");
+        System.out.println("*********************************************************");
+        if(matriz.get(taxi.getPosy()).get(taxi.getPosx()).equals("*")){
+            this.matriz.get(taxi.getPosy()).set(taxi.getPosx(), taxi.getId());
+        }
+        else{
+            for(int i = 0; i<this.numfilas; i++){
+                for(int j = 0; j<this.numcolumnas; j++){
+                    if(matriz.get(j).get(i).equals("*")){
+                        taxi.setPosx(i);
+                        taxi.setPosy(j);
+                        this.matriz.get(taxi.getPosy()).set(taxi.getPosx(), taxi.getId());
+                    }
+                }
+            }
+        }
         for(int i = 0; i<this.numfilas; i++){
             System.out.println("");
             for(int j = 0; j<this.numcolumnas; j++){
-                if(matriz.get(j).get(i).equals("")){
-                    System.out.print("*  ");
-                }
-                else{
-                    System.out.print(matriz.get(j).get(i)+"  ");
-                }
-                
+                System.out.print(matriz.get(j).get(i)+"  ");
             }
         }
         System.out.println("");
+        return taxi;
     }
     public boolean crearTaxi() throws RemoteException{
         

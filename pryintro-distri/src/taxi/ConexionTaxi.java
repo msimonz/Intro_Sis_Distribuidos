@@ -41,11 +41,11 @@ public class ConexionTaxi{
                         int posy = serverIn.posTaxiY();
                         int velocidad = 1;
                         Taxi nuevo = new Taxi(id, posx, posy, velocidad);
-                        taxis.add(nuevo);
+                        nuevo = serverIn.coorTaxi(nuevo);
                         System.out.println("*********************************************************");
                         System.out.println("Las coordenadas del taxi son: ["+nuevo.getPosx()+", "+nuevo.getPosy()+"].");
                         System.out.println("*********************************************************");
-                        serverIn.coorTaxi(nuevo.getId());
+                        taxis.add(nuevo);
                     }
                     case 4 ->{
                         System.out.println("Enviando coordenadas al servidor...");
