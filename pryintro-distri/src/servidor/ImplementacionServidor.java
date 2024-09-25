@@ -57,6 +57,7 @@ public class ImplementacionServidor extends UnicastRemoteObject implements Inter
         System.out.println("*********************************************************");
         System.out.println("Coordenadas del Taxi "+ taxi.getId() + ": ["+taxi.getPosx()+ ", "+ taxi.getPosy()+"]");
         System.out.println("*********************************************************");
+        
         if(matriz.get(taxi.getPosy()).get(taxi.getPosx()).equals("*")){
             this.matriz.get(taxi.getPosy()).set(taxi.getPosx(), taxi.getId());
         }
