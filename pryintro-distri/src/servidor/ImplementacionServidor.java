@@ -42,6 +42,7 @@ public class ImplementacionServidor extends UnicastRemoteObject implements Inter
     }
     //Resultados por recibir
     public void coorTaxi(String id) throws RemoteException{
+        System.out.println("Coordenadas del Taxi "+ id + ": ["+this.posX+ ", "+ this.posY+"]");
         this.matriz.get(this.posY).set(this.posX, id);
         System.out.println(this.matriz.get(this.posY).get(this.posX));
         for(int i = 0; i<this.numfilas; i++){
@@ -56,5 +57,6 @@ public class ImplementacionServidor extends UnicastRemoteObject implements Inter
                 
             }
         }
+        System.out.println("");
     }
 }
