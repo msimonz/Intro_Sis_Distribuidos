@@ -7,9 +7,8 @@ import taxi.Taxi;
 
 public class ImplementacionServidor extends UnicastRemoteObject implements InterfazServidor{
     ArrayList<ArrayList<String>> matriz = new ArrayList<ArrayList<String>>();
-    ArrayList<Taxi> taxis = new ArrayList<>();
-    public int numfilas;
-    public int numcolumnas;
+    public int numfilas = -1;
+    public int numcolumnas = -1;
     public int posX;
     public int posY;
     Random random = new Random();
@@ -19,20 +18,31 @@ public class ImplementacionServidor extends UnicastRemoteObject implements Inter
     }
     //Recursos a consumir
     public int filasMatriz() throws RemoteException{
-        this.numfilas = random.nextInt(30) + 5;
-        System.out.println("El número de filas es: "+numfilas);
-        return this.numfilas;
+        if(this.numfilas == -1){
+            this.numfilas = random.nextInt(30) + 5;
+            System.out.println("El número de filas es: "+numfilas);
+            return this.numfilas;
+        }
+        else{
+            return this.numfilas;
+        }
+        
     }
     public int columnasMatriz() throws RemoteException{
-        this.numcolumnas = random.nextInt(30) + 5;
-        System.out.println("El número de columnas es: "+numcolumnas);
-        for(int i = 0; i<this.numcolumnas; i++){
-            matriz.add(new ArrayList<>());
-            for(int j = 0; j<this.numfilas; j++){
-                matriz.get(i).add("");
+        if(this.numcolumnas == -1){
+            this.numcolumnas = random.nextInt(30) + 5;
+            System.out.println("El número de columnas es: "+numcolumnas);
+            for(int i = 0; i<this.numcolumnas; i++){
+                matriz.add(new ArrayList<>());
+                for(int j = 0; j<this.numfilas; j++){
+                    matriz.get(i).add("");
+                }
             }
+            return this.numcolumnas;
         }
-        return this.numcolumnas;
+        else{
+            return this.numcolumnas;
+        }
     }
     public int posTaxiX() throws RemoteException{
         this.posX = random.nextInt((this.numfilas - 1));
@@ -61,7 +71,8 @@ public class ImplementacionServidor extends UnicastRemoteObject implements Inter
         }
         System.out.println("");
     }
-    public void crearTaxi() throws RemoteException{
+    public boolean crearTaxi() throws RemoteException{
         
+        return true;
     }
 }

@@ -8,6 +8,6 @@ public interface InterfazServidor extends Remote{
     public int posTaxiX() throws RemoteException;
     public int posTaxiY() throws RemoteException;
     public void coorTaxi(String id) throws RemoteException;
-    public void crearTaxi() throws RemoteException;
+    public boolean crearTaxi() throws RemoteException;
     
 }
