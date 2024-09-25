@@ -39,7 +39,7 @@ public class ConexionTaxi{
                         String id = "T"+cont;
                         int posx = serverIn.posTaxiX();
                         int posy = serverIn.posTaxiY();
-                        int velocidad = 1;
+                        int velocidad = 0;
                         Taxi nuevo = new Taxi(id, posx, posy, velocidad);
                         nuevo = serverIn.coorTaxi(nuevo);
                         System.out.println("*********************************************************");
