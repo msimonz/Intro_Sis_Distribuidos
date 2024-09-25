@@ -8,14 +8,11 @@ public class ConexionServidor{
             Registry r = java.rmi.registry.LocateRegistry.createRegistry(1099);
             r.rebind("InterfazServidor", new ImplementacionServidor());
             System.out.println("Servidor creado con éxito");
-            creacionMatriz();
+            ArrayList<ArrayList<String>> matriz = new ArrayList<ArrayList<String>>();
 
         }catch(Exception e){
             System.out.println("Error en la creación del servidor: "+e); 
         }
         
-    }
-    public void creacionMatriz(){
-        ArrayList<ArrayList<String>> matriz = new ArrayList<ArrayList<String>>();
     }
 }
