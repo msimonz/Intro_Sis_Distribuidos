@@ -47,7 +47,7 @@ public class ImplementacionServidor extends UnicastRemoteObject implements Inter
             matriz.add(new ArrayList<>());
             for(int j = 0; j<this.numcolumnas; j++){
                 matriz.get(i).add("");
-                System.out.println(j);
+                System.out.print(j);
             }
         }
         System.out.println(this.matriz.get(this.posY).get(this.posX));
