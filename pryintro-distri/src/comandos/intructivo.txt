@@ -1,0 +1,4 @@
+Ya sea en el servidor o en el cliente:
+    - Moverse al directorio: /home/msimonz/Desktop/Intro_Sis_Distribuidos/pryintro-distri/src
+    - Compilar con el comando: javac [paquete]/*.java
+    - Correr el código con el comando: java [paquete]/[NombreDeLaClasePrincipal]
