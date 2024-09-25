@@ -20,7 +20,12 @@ public class ConexionTaxi{
                 opcion = scan.nextInt();
                 switch(opcion){
                     case 1 ->{
+                        opcion = serverIn.columnasMatriz();
+                        System.out.println(opcion);
+                    }
+                    case 2 ->{
                         opcion = serverIn.filasMatriz();
+                        System.out.println(opcion);
                     }
                 }
             } while(opcion != 3);
