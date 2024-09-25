@@ -32,7 +32,7 @@ public class ConexionTaxi{
                     case 3 ->{
                         taxi.setPosx(serverIn.posTaxiX());
                         taxi.setPosy(serverIn.posTaxiY());
-                        System.out.println("Las coordenadas del taxi son: ["+taxi.getPosx()+", "+taxi.getPosy+"].");
+                        System.out.println("Las coordenadas del taxi son: ["+taxi.getPosx()+", "+taxi.getPosy()+"].");
                     }
                 }
             } while(opcion != 7);
