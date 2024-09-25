@@ -12,7 +12,7 @@ public class ConexionTaxi{
         int numcolumnas = 0;
         ArrayList<Taxi> taxis = new ArrayList<>();
         try{
-            Registry myRegistry = LocateRegistry.getRegistry("192.168.0.16", 1099);
+            Registry myRegistry = LocateRegistry.getRegistry("192.168.0.49", 1099);
             InterfazServidor serverIn = (InterfazServidor) myRegistry.lookup("InterfazServidor");
             System.out.println("Conexión al Servidor establecida correctamente");
             do{
