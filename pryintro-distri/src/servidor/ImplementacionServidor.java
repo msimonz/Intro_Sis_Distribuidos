@@ -13,12 +13,12 @@ public class ImplementacionServidor extends UnicastRemoteObject implements Inter
 
     }
     public int filasMatriz() throws RemoteException{
-        this.numfilas = random.nextInt(30) + 1;
+        this.numfilas = random.nextInt(30) + 5;
         System.out.println("El número de filas es: "+numfilas);
         return this.numfilas;
     }
     public int columnasMatriz() throws RemoteException{
-        this.numcolumnas = random.nextInt(30) + 1;
+        this.numcolumnas = random.nextInt(30) + 5;
         System.out.println("El número de columnas es: "+numcolumnas);
         return this.numcolumnas;
     }
