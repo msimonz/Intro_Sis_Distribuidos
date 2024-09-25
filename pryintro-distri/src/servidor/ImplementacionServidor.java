@@ -3,9 +3,11 @@ import java.rmi.RemoteException;
 import java.rmi.server.UnicastRemoteObject;
 import java.util.Random;
 import java.util.ArrayList;
+import taxi.Taxi;
 
 public class ImplementacionServidor extends UnicastRemoteObject implements InterfazServidor{
     ArrayList<ArrayList<String>> matriz = new ArrayList<ArrayList<String>>();
+    ArrayList<Taxi> taxis = new ArrayList<>();
     public int numfilas;
     public int numcolumnas;
     public int posX;
@@ -58,5 +60,8 @@ public class ImplementacionServidor extends UnicastRemoteObject implements Inter
             }
         }
         System.out.println("");
+    }
+    public void crearTaxi() throws RemoteException{
+        
     }
 }
