@@ -1,5 +1,6 @@
 package taxi;
-public class Taxi{
+import java.io.Serializable;
+public class Taxi implements Serializable{
     private String id;
     private int posx;
     private int posy;
