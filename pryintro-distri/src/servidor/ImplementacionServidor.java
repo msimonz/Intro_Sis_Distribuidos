@@ -26,10 +26,8 @@ public class ImplementacionServidor extends UnicastRemoteObject implements Inter
         System.out.println("El número de columnas es: "+numcolumnas);
         for(int i = 0; i<this.numcolumnas; i++){
             matriz.add(new ArrayList<>());
-            System.out.println("");
             for(int j = 0; j<this.numfilas; j++){
                 matriz.get(i).add("");
-                System.out.print(j+" ");
             }
         }
         return this.numcolumnas;
@@ -43,10 +41,15 @@ public class ImplementacionServidor extends UnicastRemoteObject implements Inter
         return this.posY;
     }
     //Resultados por recibir
-    public void coorTaxi(String id){
-        System.out.println("Holamundo");
+    public void coorTaxi(String id) throws RemoteException{
         this.matriz.get(this.posY).set(this.posX, id);
-        System.out.println("Holamundo");
+        for(int i = 0; i<this.numfilas; i++){
+            matriz.add(new ArrayList<>());
+            for(int j = 0; j<this.numcolumnas; j++){
+                matriz.get(i).add("");
+                System.out.println(j);
+            }
+        }
         System.out.println(this.matriz.get(this.posY).get(this.posX));
     }
 }
