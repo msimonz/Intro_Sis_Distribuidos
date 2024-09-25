@@ -6,8 +6,7 @@ import java.rmi.registry.Registry;
 import java.util.Scanner;
 public class ConexionTaxi{
     public static void main(String[] args){
-        public int opcion = 0;
-
+        int opcion = 0;
         try{
             Registry myRegistry = LocateRegistry.getRegistry("192.168.0.46", 1099);
             InterfazServidor serverIn = (InterfazServidor) myRegistry.lookup("InterfazServidor");
@@ -19,6 +18,16 @@ public class ConexionTaxi{
                 System.out.println("3. Salir");
                 Scanner scan = new Scanner(System.in);
                 opcion = scan.nextInt();
+                switch(opcion){
+                    case 1 ->{
+                        opcion = serverIn.columnasMatriz();
+                        System.out.println(opcion);
+                    }
+                    case 2 ->{
+                        opcion = serverIn.filasMatriz();
+                        System.out.println(opcion);
+                    }
+                }
             } while(opcion != 3);
         }catch(Exception e){
             System.out.println("Error de conexión: "+e);
