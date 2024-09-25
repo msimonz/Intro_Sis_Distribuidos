@@ -15,8 +15,10 @@ public class ConexionTaxi{
                 System.out.println("Bienvenido a Amarillitos, escoja una de las siguientes opciones:");
                 System.out.println("1. Obtener el número de columnas");
                 System.out.println("2. Obtener el número de filas");
-                System.out.println("3. Salir");
+                System.out.println("3. Obtener coordenadas del Taxi en la matriz");
+                System.out.println("7. Salir");
                 Scanner scan = new Scanner(System.in);
+                Taxi taxi = new Taxi("T1", 0, 0, 1);
                 opcion = scan.nextInt();
                 switch(opcion){
                     case 1 ->{
@@ -27,8 +29,13 @@ public class ConexionTaxi{
                         opcion = serverIn.filasMatriz();
                         System.out.println("Número de filas: "+opcion);
                     }
+                    case 3 ->{
+                        taxi.setPosx(serverIn.posTaxiX());
+                        taxi.setPosy(serverIn.posTaxiY());
+                        System.out.println("Las coordenadas del taxi son: ["+taxi.getPosx()+", "+taxi.getPosy+"].");
+                    }
                 }
-            } while(opcion != 3);
+            } while(opcion != 7);
         }catch(Exception e){
             System.out.println("Error de conexión: "+e);
         }
