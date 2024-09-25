@@ -34,6 +34,10 @@ public class ConexionTaxi{
                         taxi.setPosy(serverIn.posTaxiY());
                         System.out.println("Las coordenadas del taxi son: ["+taxi.getPosx()+", "+taxi.getPosy()+"].");
                     }
+                    case 4 ->{
+                        System.out.println("Enviando coordenadas al servidor...");
+                        serverIn.coorTaxi(taxi.getId());
+                    }
                 }
             } while(opcion != 7);
         }catch(Exception e){
