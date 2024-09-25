@@ -17,12 +17,12 @@ public class ImplementacionServidor extends UnicastRemoteObject implements Inter
     }
     //Recursos a consumir
     public int filasMatriz() throws RemoteException{
-        this.numfilas = random.nextInt(30) + 5;
+        this.numfilas = random.nextInt(5) + 1;
         System.out.println("El número de filas es: "+numfilas);
         return this.numfilas;
     }
     public int columnasMatriz() throws RemoteException{
-        this.numcolumnas = random.nextInt(30) + 5;
+        this.numcolumnas = random.nextInt(5) + 1;
         System.out.println("El número de columnas es: "+numcolumnas);
         for(int i = 0; i<this.numcolumnas; i++){
             matriz.add(new ArrayList<>());
@@ -43,6 +43,7 @@ public class ImplementacionServidor extends UnicastRemoteObject implements Inter
     //Resultados por recibir
     public void coorTaxi(String id) throws RemoteException{
         this.matriz.get(this.posY).set(this.posX, id);
+        System.out.println(this.matriz.get(this.posY).get(this.posX));
         for(int i = 0; i<this.numfilas; i++){
             matriz.add(new ArrayList<>());
             System.out.println("");
@@ -51,6 +52,5 @@ public class ImplementacionServidor extends UnicastRemoteObject implements Inter
                 System.out.print(j);
             }
         }
-        System.out.println(this.matriz.get(this.posY).get(this.posX));
     }
 }
