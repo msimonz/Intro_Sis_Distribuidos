@@ -93,7 +93,7 @@ public class ImplementacionServidor extends UnicastRemoteObject implements Inter
 
     public void imprimirTaxis() throws RemoteException{
         for(Taxi taxi:taxis){
-            System.out.print("Taxi: "+taxi.getId()+" Coordenadas: ["+taxi.getPosx()+ ", "+ taxi.getPosy()+"]");
+            System.out.println("Taxi: "+taxi.getId()+" Coordenadas: ["+taxi.getPosx()+ ", "+ taxi.getPosy()+"]");
         }
     }
 }
