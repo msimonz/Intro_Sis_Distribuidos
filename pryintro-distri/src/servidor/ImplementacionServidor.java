@@ -16,7 +16,7 @@ public class ImplementacionServidor extends UnicastRemoteObject implements Inter
     public int columnasMatriz() throws RemoteException{
         Random random = new Random();
         int numcolumnas = random.nextInt(30) + 1;
-        System.out.println("El número de filas es: "+numcolumnas);
+        System.out.println("El número de columnas es: "+numcolumnas);
         return numcolumnas;
     }
 }
