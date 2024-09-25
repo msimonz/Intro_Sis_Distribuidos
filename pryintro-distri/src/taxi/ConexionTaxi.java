@@ -17,9 +17,8 @@ public class ConexionTaxi{
             System.out.println("Conexión al Servidor establecida correctamente");
             do{
                 System.out.println("Bienvenido a Amarillitos, escoja una de las siguientes opciones:");
-                System.out.println("1. Obtener el número de filas");
-                System.out.println("2. Obtener el número de columnas");
-                System.out.println("3. Crear un Taxi");
+                System.out.println("1. Obtener el Tamaño de la Matriz");
+                System.out.println("2. Crear un Taxi");
                 System.out.println("4. /////");
                 System.out.println("7. Salir");
                 Scanner scan = new Scanner(System.in);
@@ -27,13 +26,12 @@ public class ConexionTaxi{
                 switch(opcion){
                     case 1 ->{
                         numfilas = serverIn.filasMatriz();
-                        System.out.println("Numero de filas: "+ numfilas);
+                        numcolumnas = serverIn.columnasMatriz();
+                        System.out.println("*********************************************************");
+                        System.out.println("Las coordenadas del taxi son: ["+numfilas+", "+numcolumnas+"].");
+                        System.out.println("*********************************************************");
                     }
                     case 2 ->{
-                        numcolumnas = serverIn.columnasMatriz();
-                        System.out.println("Número de columnas: "+numcolumnas);
-                    }
-                    case 3 ->{
                         int cont = 0;
                         for(Taxi taxi: taxis){
                             cont++;
@@ -44,7 +42,9 @@ public class ConexionTaxi{
                         int velocidad = 1;
                         Taxi nuevo = new Taxi(id, posx, posy, velocidad);
                         taxis.add(nuevo);
+                        System.out.println("*********************************************************");
                         System.out.println("Las coordenadas del taxi son: ["+nuevo.getPosx()+", "+nuevo.getPosy()+"].");
+                        System.out.println("*********************************************************");
                         serverIn.coorTaxi(nuevo.getId());
                     }
                     case 4 ->{
