@@ -42,7 +42,9 @@ public class ImplementacionServidor extends UnicastRemoteObject implements Inter
     }
     //Resultados por recibir
     public void coorTaxi(String id){
+        System.out.println("Holamundo");
         this.matriz.get(this.posY).set(this.posX, id);
+        System.out.println("Holamundo");
         System.out.println(this.matriz.get(this.posY).get(this.posX));
     }
 }
