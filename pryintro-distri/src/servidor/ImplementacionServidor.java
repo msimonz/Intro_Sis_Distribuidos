@@ -47,7 +47,13 @@ public class ImplementacionServidor extends UnicastRemoteObject implements Inter
         for(int i = 0; i<this.numfilas; i++){
             System.out.println("");
             for(int j = 0; j<this.numcolumnas; j++){
-                System.out.print(j);
+                if(matriz.get(j).get(i).equals("")){
+                    System.out.print(j);
+                }
+                else{
+                    System.out.print(matriz.get(j).get(i).equals(""));
+                }
+                
             }
         }
     }
