@@ -23,11 +23,11 @@ public class ImplementacionServidor extends UnicastRemoteObject implements Inter
         return this.numcolumnas;
     }
     public int posTaxiX() throws RemoteException{
-        this.posX = random.nextInt((this.numfilas - 1))
+        this.posX = random.nextInt((this.numfilas - 1));
         return this.posX;
     }
     public int posTaxiY() throws RemoteException{
-        this.posY = random.nextInt((this.numcolumnas - 1))
+        this.posY = random.nextInt((this.numcolumnas - 1));
         return this.posY;
     }
 }

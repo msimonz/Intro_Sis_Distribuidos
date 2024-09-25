@@ -1,3 +1,4 @@
+package taxi;
 public class Taxi{
     private String id;
     private int posx;
