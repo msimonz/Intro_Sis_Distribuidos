@@ -43,6 +43,7 @@ public class ConexionTaxi{
                         int posy = serverIn.posTaxiY();
                         int velocidad = 1;
                         Taxi nuevo = new Taxi(id, posx, posy, velocidad);
+                        taxis.add(nuevo);
                         System.out.println("Las coordenadas del taxi son: ["+nuevo.getPosx()+", "+nuevo.getPosy()+"].");
                         serverIn.coorTaxi(nuevo.getId());
                     }
