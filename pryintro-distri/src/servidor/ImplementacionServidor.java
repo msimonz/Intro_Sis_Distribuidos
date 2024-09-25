@@ -51,7 +51,7 @@ public class ImplementacionServidor extends UnicastRemoteObject implements Inter
                     System.out.print(j);
                 }
                 else{
-                    System.out.print(matriz.get(j).get(i).equals(""));
+                    System.out.print(matriz.get(j).get(i));
                 }
                 
             }
