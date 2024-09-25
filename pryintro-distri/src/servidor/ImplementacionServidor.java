@@ -9,10 +9,12 @@ public class ImplementacionServidor extends UnicastRemoteObject implements Inter
     public void creacionMatriz() throws RemoteException{
         System.out.println("Hola mundo");
     }
-    public void filasMatriz() throws RemoteException{
+    public int filasMatriz() throws RemoteException{
         System.out.println("Hola mundo");
+        return 0;
     }
-    public void columnasMatriz() throws RemoteException{
+    public int columnasMatriz() throws RemoteException{
         System.out.println("Hola mundo");
+        return 0;
     }
 }
