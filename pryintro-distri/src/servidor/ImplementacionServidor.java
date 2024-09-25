@@ -15,6 +15,6 @@ public class ImplementacionServidor extends UnicastRemoteObject implements Inter
     }
     public int columnasMatriz() throws RemoteException{
         System.out.println("Hola mundo");
-        return 0;
+        return 10;
     }
 }
