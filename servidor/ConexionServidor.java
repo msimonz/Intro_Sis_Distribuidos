@@ -1,4 +1,3 @@
-package servidor;
 import java.rmi.registry.Registry;
 
 public class ConexionServidor{
