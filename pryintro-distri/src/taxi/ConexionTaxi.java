@@ -28,7 +28,7 @@ public class ConexionTaxi{
                         numfilas = serverIn.filasMatriz();
                         numcolumnas = serverIn.columnasMatriz();
                         System.out.println("*********************************************************");
-                        System.out.println("Las coordenadas del taxi son: ["+numfilas+", "+numcolumnas+"].");
+                        System.out.println("El tamaño de la matriz es de: ["+numfilas+"x"+numcolumnas+"].");
                         System.out.println("*********************************************************");
                     }
                     case 2 ->{
