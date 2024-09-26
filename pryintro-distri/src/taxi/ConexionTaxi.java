@@ -14,7 +14,7 @@ public class ConexionTaxi{
         ArrayList<Taxi> taxis = new ArrayList<>();
         Taxi[] taxiseleccionado = new Taxi[1];
         try{
-            Registry myRegistry = LocateRegistry.getRegistry("192.168.0.49", 1099);
+            Registry myRegistry = LocateRegistry.getRegistry("192.168.0.47", 1099);
             InterfazServidor serverIn = (InterfazServidor) myRegistry.lookup("InterfazServidor");
             System.out.println("Conexión al Servidor establecida correctamente");
             TaxiMonitor taxiMonitor = new TaxiMonitor(taxis, serverIn);
