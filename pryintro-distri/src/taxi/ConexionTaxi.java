@@ -2,6 +2,7 @@ package taxi;
 import java.rmi.Naming;
 import servidor.InterfazServidor;
 import java.rmi.registry.LocateRegistry;
+import servidor.TaxiSeleccionadoCallback;
 import java.rmi.registry.Registry;
 import java.util.Scanner;
 import java.util.ArrayList;
@@ -11,11 +12,20 @@ public class ConexionTaxi{
         int numfilas = 0;
         int numcolumnas = 0;
         ArrayList<Taxi> taxis = new ArrayList<>();
+        Taxi[] taxiseleccionado = new Taxi[1];
         try{
             Registry myRegistry = LocateRegistry.getRegistry("192.168.0.49", 1099);
             InterfazServidor serverIn = (InterfazServidor) myRegistry.lookup("InterfazServidor");
             System.out.println("Conexión al Servidor establecida correctamente");
-            MovimientoTaxi mv = new MovimientoTaxi(serverIn.iniciarEnvioMensajes(), serverIn);
+            // Ejemplo de uso
+            serverIn.iniciarEnvioMensajes(new TaxiSeleccionadoCallback() {
+                @Override
+                public void onTaxiSeleccionado(Taxi taxi) {
+                    taxiseleccionado[0] = taxi;
+                }
+            });
+
+            MovimientoTaxi mv = new MovimientoTaxi(taxiseleccionado[0], serverIn);
             do{
                 System.out.println("Bienvenido a Amarillitos, escoja una de las siguientes opciones:");
                 System.out.println("1. Obtener el Tamaño de la Matriz");

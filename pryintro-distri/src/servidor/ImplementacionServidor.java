@@ -4,8 +4,11 @@ import java.rmi.server.UnicastRemoteObject;
 import java.util.Random;
 import java.util.ArrayList;
 import taxi.Taxi;
+import java.rmi.Remote;
+
 
 public class ImplementacionServidor extends UnicastRemoteObject implements InterfazServidor{
+
     ArrayList<ArrayList<String>> matriz = new ArrayList<ArrayList<String>>();
     ArrayList<Taxi> taxis = new ArrayList<>();
     public int numfilas = -1;
@@ -97,22 +100,35 @@ public class ImplementacionServidor extends UnicastRemoteObject implements Inter
         }
     }
     
-    public Taxi iniciarEnvioMensajes() throws RemoteException {
-        try {
-            // Espera hasta que haya al menos 3 taxis
-            while (taxis.size() < 3) {
-                Thread.sleep(1000); // Usar Thread.sleep
+    public void iniciarEnvioMensajes(TaxiSeleccionadoCallback callback) throws RemoteException {
+        new Thread(new Runnable() {
+            @Override
+            public void run() {
+                try {
+                    // Espera hasta que haya al menos 3 taxis
+                    while (taxis.size() < 3) {
+                        Thread.sleep(1000); // Espera 1 segundo
+                    }
+
+                    // Selecciona un taxi al azar
+                    Random random = new Random();
+                    int indiceAleatorio = random.nextInt(taxis.size());
+                    Taxi taxiSeleccionado = taxis.get(indiceAleatorio);
+                    System.out.println("Taxi seleccionado: " + taxiSeleccionado.getId());
+
+                    try {
+                        callback.onTaxiSeleccionado(taxiSeleccionado);
+                    } catch (RemoteException e) {
+                        e.printStackTrace(); // Manejo de la excepción
+                    }
+
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
             }
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
-        
-        // Seleccionar un taxi aleatorio
-        Random random = new Random();
-        int indiceAleatorio = random.nextInt(taxis.size());
-        System.out.println("Taxi seleccionado: " + taxis.get(indiceAleatorio).getId());
-        return taxis.get(indiceAleatorio);
+        }).start();
     }
+
 
 
     public void actualizarPosicionTaxi(String idTaxi, int posX, int posY) throws RemoteException {
