@@ -58,6 +58,7 @@ public class ConexionTaxi{
                 }
             } while(opcion != 7);
             taxiMonitor.detener();
+            Thread.currentThread().interrupt();
         }catch(Exception e){
             System.out.println("Error de conexión: "+e);
         }
