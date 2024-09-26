@@ -25,8 +25,8 @@ public class MovimientoTaxi {
                 //serverIn.actualizarPosicionTaxi(taxi.getId(), nuevaPosX, nuevaPosY);
                 
                 // Actualiza la posición local
-                taxi.setPosx(nuevaPosX);
-                taxi.setPosy(nuevaPosY);
+                taxi.setPosx2(nuevaPosX);
+                taxi.setPosy2(nuevaPosY);
                 
                 // Espera un tiempo antes de mover de nuevo
                 Thread.sleep(1000); // Espera 1 segundo

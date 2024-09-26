@@ -8,6 +8,7 @@ public class TaxiMonitor extends Thread{
     private InterfazServidor serverIn;
     private boolean continuar;
     private MovimientoTaxi mv;
+    
     public TaxiMonitor(ArrayList<Taxi> taxis, InterfazServidor serverIn) {
         this.taxis = taxis;
         this.serverIn = serverIn;

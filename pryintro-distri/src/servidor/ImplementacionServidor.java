@@ -118,26 +118,16 @@ public class ImplementacionServidor extends UnicastRemoteObject implements Inter
         return taxis.get(indiceAleatorio);
     }
 
-    public void actualizarPosicionTaxi(String idTaxi, int posX, int posY) throws RemoteException {
-        for (Taxi taxi : taxis) {
-            if (taxi.getId().equals(idTaxi)) {
-                taxi.setPosx(posX);
-                taxi.setPosy(posY);
-                System.out.println("Nueva posición del taxi " + idTaxi + ": [" + posX + ", " + posY + "]");
-                break;
-            }
-        }
-    }
     @Override
     public void actualizarPosicion(Taxi taxi)throws RemoteException{
-        for (Taxi taxii : taxis) {
-            if (taxii.getId().equals(taxi.getId())) {
-                taxii.setPosx(posX);
-                taxii.setPosy(posY);
-                System.out.println("Nueva posición del taxi " + taxii.getId() + ": [" + posX + ", " + posY + "]");
-                break;
+        for(int i=0; i<taxis.size(); i++){
+            Taxi taxii = taxis.get(i);
+            if(taxii.getId().equals(taxi.getId())){
+                taxis.add(i, taxi);
             }
         }
+        System.out.println("Nueva posición del taxi " + taxi.getId() + ": [" + taxi.getPosx() + ", " + taxi.getPosy() + "]");
+
     }
 
 }
