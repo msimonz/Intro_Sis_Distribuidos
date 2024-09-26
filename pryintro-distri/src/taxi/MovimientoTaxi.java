@@ -17,6 +17,7 @@ public class MovimientoTaxi {
     public void mover(){
         while (continuar) {
             try{
+                System.out.println("Adios Mundo");
                 // Movimiento aleatorio
                 int nuevaPosX = (int) (Math.random() * serverIn.filasMatriz());
                 int nuevaPosY = (int) (Math.random() * serverIn.columnasMatriz());
