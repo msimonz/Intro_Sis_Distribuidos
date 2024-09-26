@@ -3,7 +3,7 @@ package taxi;
 import java.util.ArrayList;
 import servidor.InterfazServidor;
 import java.rmi.RemoteException; 
-public class TaxiMonitor implements Runnable {
+public class TaxiMonitor extends Thread{
     private final ArrayList<Taxi> taxis;
     private InterfazServidor serverIn;
     private boolean continuar;

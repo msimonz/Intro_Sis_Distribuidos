@@ -18,8 +18,7 @@ public class ConexionTaxi{
             InterfazServidor serverIn = (InterfazServidor) myRegistry.lookup("InterfazServidor");
             System.out.println("Conexión al Servidor establecida correctamente");
             TaxiMonitor taxiMonitor = new TaxiMonitor(taxis, serverIn);
-            Thread monitorThread = new Thread(taxiMonitor);
-            monitorThread.start();
+            taxiMonitor.start();
             do{
                 System.out.println("Bienvenido a Amarillitos, escoja una de las siguientes opciones:");
                 System.out.println("1. Obtener el Tamaño de la Matriz");
