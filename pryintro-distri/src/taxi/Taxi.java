@@ -28,8 +28,8 @@ public class Taxi implements Serializable{
         suscriptores.remove(suscriptor);
     }
     private void notificarSuscriptores(){
-        System.out.println("Prueba de que llegó");
         for(TaxiLatidoPosicion suscri: suscriptores){
+            System.out.println("Prueba de que llegó");
             try {
             suscri.actualizarPosicion(this);
         } catch (RemoteException e) {

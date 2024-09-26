@@ -45,6 +45,7 @@ public class ConexionTaxi{
                         int posy = serverIn.posTaxiY();
                         int velocidad = 0;
                         Taxi nuevo = new Taxi(id, posx, posy, velocidad);
+                        nuevo.añadirSuscriptor(serverIn);
                         taxis.add(nuevo);
                         nuevo = serverIn.coorTaxi(nuevo, taxis);
                         System.out.println("*********************************************************");
@@ -56,7 +57,6 @@ public class ConexionTaxi{
                                 taxii.setPosy(nuevo.getPosy());
                             }
                         }
-                        nuevo.añadirSuscriptor(serverIn);
                     }
                     case 4 ->{
                         serverIn.imprimirTaxis();
