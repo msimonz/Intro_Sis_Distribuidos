@@ -107,8 +107,6 @@ public class ImplementacionServidor extends UnicastRemoteObject implements Inter
         return taxis.get(indiceAleatorio);
     }
 
-
-
     public void actualizarPosicionTaxi(String idTaxi, int posX, int posY) throws RemoteException {
     for (Taxi taxi : taxis) {
         if (taxi.getId().equals(idTaxi)) {

@@ -19,6 +19,7 @@ public class TaxiMonitor implements Runnable {
                     System.out.println("Se han registrado tres o más taxis.");
                     try {
                         MovimientoTaxi mv = new MovimientoTaxi(serverIn.seleccionarTaxi(), serverIn);
+                        System.out.println("El Mensaje ha llegado con éxito");
                     } catch (RemoteException e) {
                         System.out.println("Error al seleccionar el taxi: " + e.getMessage());
                     }
