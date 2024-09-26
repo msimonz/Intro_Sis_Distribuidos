@@ -16,6 +16,7 @@ public class MovimientoTaxi extends Thread {
         while (continuar) {
             try {
                 // Movimiento aleatorio
+                System.out.println("Hola mundo");
                 int nuevaPosX = (int) (Math.random() * serverIn.filasMatriz());
                 int nuevaPosY = (int) (Math.random() * serverIn.columnasMatriz());
                 
