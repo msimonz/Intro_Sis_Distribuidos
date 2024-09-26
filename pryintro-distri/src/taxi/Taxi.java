@@ -31,6 +31,7 @@ public class Taxi implements Serializable{
         for(TaxiLatidoPosicion suscri: suscriptores){
             try {
             suscri.actualizarPosicion(this);
+             System.out.println("Prueba de que llegó");
         } catch (RemoteException e) {
             System.out.println("Error al notificar al suscriptor: " + e.getMessage());
         }
