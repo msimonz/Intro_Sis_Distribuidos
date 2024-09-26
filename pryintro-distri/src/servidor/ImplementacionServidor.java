@@ -129,7 +129,7 @@ public class ImplementacionServidor extends UnicastRemoteObject implements Inter
         }
     }
     @Override
-    public void actualizarPosicion(Taxi taxi){
+    public void actualizarPosicion(Taxi taxi)throws RemoteException{
         for (Taxi taxii : taxis) {
             if (taxii.getId().equals(taxi.getId())) {
                 taxii.setPosx(posX);

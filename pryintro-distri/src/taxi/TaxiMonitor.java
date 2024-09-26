@@ -7,6 +7,7 @@ public class TaxiMonitor implements Runnable {
     private final ArrayList<Taxi> taxis;
     private InterfazServidor serverIn;
     private boolean continuar;
+    private MovimientoTaxi mv;
     public TaxiMonitor(ArrayList<Taxi> taxis, InterfazServidor serverIn) {
         this.taxis = taxis;
         this.serverIn = serverIn;
@@ -22,7 +23,10 @@ public class TaxiMonitor implements Runnable {
                     try {
                         Taxi seleccionado = serverIn.seleccionarTaxi();
                         System.out.println("El Mensaje ha llegado con éxito: El taxi "+seleccionado.getId()+" ha sido seleccionado para realizar un servicio.");
-                        MovimientoTaxi mv = new MovimientoTaxi(seleccionado, serverIn);
+                        if (mv != null) {
+                            mv.detener(); // Detener el hilo anterior si existe
+                        }
+                        mv = new MovimientoTaxi(seleccionado, serverIn);
                         mv.mover();
                         
                     } catch (RemoteException e) {
