@@ -23,6 +23,7 @@ public class ConexionTaxi{
                 System.out.println("Bienvenido a Amarillitos, escoja una de las siguientes opciones:");
                 System.out.println("1. Obtener el Tamaño de la Matriz");
                 System.out.println("2. Crear un Taxi");
+                System.out.println("3. Imprimir taxis");
                 System.out.println("4. Imprimir taxis");
                 System.out.println("7. Salir");
                 Scanner scan = new Scanner(System.in);
@@ -51,12 +52,14 @@ public class ConexionTaxi{
                         System.out.println("*********************************************************");
                         taxis.add(nuevo);
                     }
-                    case 4 ->{
+                    case 3 ->{
                         serverIn.imprimirTaxis();
+                    }
+                    case 4 ->{
+                        taxiMonitor.detener();
                     }
                 }
             } while(opcion != 7);
-            taxiMonitor.detener();
         }catch(Exception e){
             System.out.println("Error de conexión: "+e);
         }
