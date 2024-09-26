@@ -26,7 +26,6 @@ public class MovimientoTaxi {
                 // Actualiza la posición local
                 taxi.setPosx2(nuevaPosX);
                 taxi.setPosy2(nuevaPosY);
-                System.out.println("Adios Mundo");
                 // Espera un tiempo antes de mover de nuevo
                 Thread.sleep(1000); // Espera 1 segundo
             } catch (Exception e) {

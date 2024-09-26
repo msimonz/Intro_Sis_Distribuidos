@@ -127,6 +127,14 @@ public class ImplementacionServidor extends UnicastRemoteObject implements Inter
             }
         }
         System.out.println("Nueva posición del taxi " + taxi.getId() + ": [" + taxi.getPosx() + ", " + taxi.getPosy() + "]");
+        String contenido = "Nueva posición del taxi " + taxi.getId() + ": [" + taxi.getPosx() + ", " + taxi.getPosy() + "]";
+        try (BufferedWriter escritor = new BufferedWriter(new FileWriter("movimientotaxis.txt", true))) {
+            escritor.write(contenido);
+            escritor.newLine();
+        } catch (IOException e) {
+            System.out.println("Ocurrió un error al escribir en el archivo.");
+            e.printStackTrace();
+        }
 
     }
 
