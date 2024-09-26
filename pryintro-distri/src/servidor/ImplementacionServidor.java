@@ -100,33 +100,11 @@ public class ImplementacionServidor extends UnicastRemoteObject implements Inter
         }
     }
     
-    public void iniciarEnvioMensajes(TaxiSeleccionadoCallback callback) throws RemoteException {
-        new Thread(new Runnable() {
-            @Override
-            public void run() {
-                try {
-                    // Espera hasta que haya al menos 3 taxis
-                    while (taxis.size() < 3) {
-                        Thread.sleep(1000); // Espera 1 segundo
-                    }
-
-                    // Selecciona un taxi al azar
-                    Random random = new Random();
-                    int indiceAleatorio = random.nextInt(taxis.size());
-                    Taxi taxiSeleccionado = taxis.get(indiceAleatorio);
-                    System.out.println("Taxi seleccionado: " + taxiSeleccionado.getId());
-
-                    try {
-                        callback.onTaxiSeleccionado(taxiSeleccionado);
-                    } catch (RemoteException e) {
-                        e.printStackTrace(); // Manejo de la excepción
-                    }
-
-                } catch (InterruptedException e) {
-                    e.printStackTrace();
-                }
-            }
-        }).start();
+    public Taxi seleccionarTaxi() throws RemoteException {
+        Random random = new Random();
+        int indiceAleatorio = random.nextInt(taxis.size());
+        System.out.println("Taxi seleccionado: " + taxis.get(indiceAleatorio).getId());
+        return taxis.get(indiceAleatorio);
     }
 
 

@@ -10,7 +10,7 @@ public interface InterfazServidor extends Remote{
     public int posTaxiY() throws RemoteException;
     public Taxi coorTaxi(Taxi taxi, ArrayList<Taxi> listataxis) throws RemoteException;
     public void imprimirTaxis() throws RemoteException;
-    public void iniciarEnvioMensajes(TaxiSeleccionadoCallback callback) throws RemoteException;
+    public Taxi seleccionarTaxi() throws RemoteException;
     public void actualizarPosicionTaxi(String idTaxi, int posX, int posY) throws RemoteException;
     
 }
