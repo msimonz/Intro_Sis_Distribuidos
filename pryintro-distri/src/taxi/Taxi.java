@@ -54,7 +54,6 @@ public class Taxi implements Serializable{
 
     public void setPosx(int posx) {
         this.posx = posx;
-        notificarSuscriptores();
     }
     public void setPosx2(int posx) {
         this.posx = posx;
@@ -67,7 +66,6 @@ public class Taxi implements Serializable{
 
     public void setPosy(int posy) {
         this.posy = posy;
-        notificarSuscriptores();
     }
     public void setPosy2(int posy) {
         this.posy = posy;
