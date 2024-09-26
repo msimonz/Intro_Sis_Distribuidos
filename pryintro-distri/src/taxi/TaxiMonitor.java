@@ -40,7 +40,8 @@ public class TaxiMonitor implements Runnable {
             }
         }
     }
-    public void detener(){
+    public void detener(MovimientoTaxi mv){
+        
         this.continuar = false;
     }
 }

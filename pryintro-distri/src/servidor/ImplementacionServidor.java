@@ -5,7 +5,9 @@ import java.util.Random;
 import java.util.ArrayList;
 import taxi.Taxi;
 import java.rmi.Remote;
-
+import java.io.BufferedWriter;
+import java.io.FileWriter;
+import java.io.IOException;
 
 public class ImplementacionServidor extends UnicastRemoteObject implements InterfazServidor{
 
@@ -89,6 +91,14 @@ public class ImplementacionServidor extends UnicastRemoteObject implements Inter
             if(taxii.getId().equals(taxi.getId())){
                 taxis.add(i, taxi);
             }
+        }
+        String contenido = "Se creó el Taxi "+taxi.getId()+" en la posición ["+taxi.getPosx()+", "+taxi.getPosy()+"]";
+        try (BufferedWriter escritor = new BufferedWriter(new FileWriter("taxis.txt", true))) {
+            escritor.write(contenido);
+            escritor.newLine();
+        } catch (IOException e) {
+            System.out.println("Ocurrió un error al escribir en el archivo.");
+            e.printStackTrace();
         }
         return taxi;
 

@@ -10,7 +10,9 @@ public class MovimientoTaxi extends Thread {
         this.serverIn = serverIn;
         this.continuar = true;
     }
-
+    public MovimientoTaxi(){
+        
+    }
    
     public void mover() {
         while (continuar) {
