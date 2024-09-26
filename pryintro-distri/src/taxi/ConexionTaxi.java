@@ -15,6 +15,7 @@ public class ConexionTaxi{
             Registry myRegistry = LocateRegistry.getRegistry("192.168.0.49", 1099);
             InterfazServidor serverIn = (InterfazServidor) myRegistry.lookup("InterfazServidor");
             System.out.println("Conexión al Servidor establecida correctamente");
+            MovimientoTaxi mv = new MovimientoTaxi(serverIn.iniciarEnvioMensajes(), serverIn);
             do{
                 System.out.println("Bienvenido a Amarillitos, escoja una de las siguientes opciones:");
                 System.out.println("1. Obtener el Tamaño de la Matriz");
@@ -52,6 +53,7 @@ public class ConexionTaxi{
                     }
                 }
             } while(opcion != 7);
+            mv.detener();
         }catch(Exception e){
             System.out.println("Error de conexión: "+e);
         }

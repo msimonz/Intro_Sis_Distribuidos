@@ -96,4 +96,33 @@ public class ImplementacionServidor extends UnicastRemoteObject implements Inter
             System.out.println("Taxi: "+taxi.getId()+" Coordenadas: ["+taxi.getPosx()+ ", "+ taxi.getPosy()+"]");
         }
     }
+    
+    public Taxi iniciarEnvioMensajes() throws RemoteException {
+        try {
+            // Espera hasta que haya al menos 3 taxis
+            while (taxis.size() < 3) {
+                Thread.sleep(1000); // Usar Thread.sleep
+            }
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+        
+        // Seleccionar un taxi aleatorio
+        Random random = new Random();
+        int indiceAleatorio = random.nextInt(taxis.size());
+        System.out.println("Taxi seleccionado: " + taxis.get(indiceAleatorio).getId());
+        return taxis.get(indiceAleatorio);
+    }
+
+
+    public void actualizarPosicionTaxi(String idTaxi, int posX, int posY) throws RemoteException {
+    for (Taxi taxi : taxis) {
+        if (taxi.getId().equals(idTaxi)) {
+            taxi.setPosx(posX);
+            taxi.setPosy(posY);
+            System.out.println("Nueva posición del taxi " + idTaxi + ": [" + posX + ", " + posY + "]");
+            break;
+        }
+    }
+}
 }

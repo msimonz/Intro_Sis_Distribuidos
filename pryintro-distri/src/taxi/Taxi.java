@@ -14,6 +14,9 @@ public class Taxi implements Serializable{
         this.velocidad = velocidad;
         this.numserv = 3;
     }
+    public Taxi(){
+        this.numserv = 3;
+    }
         
     public String getId() {
         return id;
