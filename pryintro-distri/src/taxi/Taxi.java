@@ -28,6 +28,7 @@ public class Taxi implements Serializable{
         suscriptores.remove(suscriptor);
     }
     private void notificarSuscriptores(){
+        System.out.println("Prueba de que llegó");
         for(TaxiLatidoPosicion suscri: suscriptores){
             try {
             suscri.actualizarPosicion(this);
@@ -57,7 +58,7 @@ public class Taxi implements Serializable{
     }
     public void setPosx2(int posx) {
         this.posx = posx;
-        System.out.println("Prueba de que llegó");
+        
         notificarSuscriptores();
     }
 
