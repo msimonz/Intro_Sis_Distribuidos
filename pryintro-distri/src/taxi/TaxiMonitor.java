@@ -27,8 +27,10 @@ public class TaxiMonitor extends Thread{
                             mv.detener(); // Detener el hilo anterior si existe
                         }
                         mv = new MovimientoTaxi(seleccionado, serverIn);
-                        mv.mover();
-                        
+                        for(int i = 0; i<5; i++){
+                            mv.mover();
+                            mv.detener();
+                        }
                     } catch (RemoteException e) {
                         System.out.println("Error al seleccionar el taxi: " + e.getMessage());
                     }
@@ -44,8 +46,7 @@ public class TaxiMonitor extends Thread{
             }
         }
     }
-    public void detener(MovimientoTaxi mv){
-        
+    public void detener(){
         this.continuar = false;
     }
 }
