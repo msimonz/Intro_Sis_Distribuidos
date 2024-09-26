@@ -8,7 +8,7 @@ public class TaxiMonitor extends Thread{
     private InterfazServidor serverIn;
     private boolean continuar;
     private MovimientoTaxi mv;
-    
+
     public TaxiMonitor(ArrayList<Taxi> taxis, InterfazServidor serverIn) {
         this.taxis = taxis;
         this.serverIn = serverIn;
@@ -24,12 +24,10 @@ public class TaxiMonitor extends Thread{
                     try {
                         Taxi seleccionado = serverIn.seleccionarTaxi();
                         System.out.println("El Mensaje ha llegado con éxito: El taxi "+seleccionado.getId()+" ha sido seleccionado para realizar un servicio.");
-                        if (mv != null) {
-                            mv.detener(); // Detener el hilo anterior si existe
-                        }
                         mv = new MovimientoTaxi(seleccionado, serverIn);
                         for(int i = 0; i<5; i++){
                             mv.mover();
+                            System.out.println("Hola Mundo");
                             mv.detener();
                         }
                     } catch (RemoteException e) {
