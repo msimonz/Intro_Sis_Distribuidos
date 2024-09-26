@@ -13,6 +13,6 @@ public interface InterfazServidor extends Remote, TaxiLatidoPosicion{
     public void imprimirTaxis() throws RemoteException;
     public Taxi seleccionarTaxi() throws RemoteException;
     public void actualizarPosicionTaxi(String idTaxi, int posX, int posY) throws RemoteException;
-    void actualizarPosicion(Taxi taxi);
+    void actualizarPosicion(Taxi taxi) throws RemoteException;
     
 }
