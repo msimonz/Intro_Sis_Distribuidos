@@ -18,12 +18,12 @@ public class ConexionTaxi{
             InterfazServidor serverIn = (InterfazServidor) myRegistry.lookup("InterfazServidor");
             System.out.println("Conexión al Servidor establecida correctamente");
             TaxiMonitor taxiMonitor = new TaxiMonitor(taxis, serverIn);
-            new Thread(taxiMonitor).start();
+            Thread monitorThread = new Thread(taxiMonitor);
+            monitorThread.start();
             do{
                 System.out.println("Bienvenido a Amarillitos, escoja una de las siguientes opciones:");
                 System.out.println("1. Obtener el Tamaño de la Matriz");
                 System.out.println("2. Crear un Taxi");
-                System.out.println("3. Imprimir taxis");
                 System.out.println("4. Imprimir taxis");
                 System.out.println("7. Salir");
                 Scanner scan = new Scanner(System.in);
@@ -52,14 +52,12 @@ public class ConexionTaxi{
                         System.out.println("*********************************************************");
                         taxis.add(nuevo);
                     }
-                    case 3 ->{
-                        serverIn.imprimirTaxis();
-                    }
                     case 4 ->{
-                        taxiMonitor.detener();
+                        serverIn.imprimirTaxis();
                     }
                 }
             } while(opcion != 7);
+            taxiMonitor.detener();
         }catch(Exception e){
             System.out.println("Error de conexión: "+e);
         }
