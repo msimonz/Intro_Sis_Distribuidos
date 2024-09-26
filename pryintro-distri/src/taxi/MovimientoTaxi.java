@@ -11,10 +11,10 @@ public class MovimientoTaxi extends Thread {
         this.continuar = true;
     }
 
-    @Override
-    public void run() {
+   
+    public void mover() {
         while (continuar) {
-            try {
+            try{
                 // Movimiento aleatorio
                 System.out.println("Hola mundo");
                 int nuevaPosX = (int) (Math.random() * serverIn.filasMatriz());
