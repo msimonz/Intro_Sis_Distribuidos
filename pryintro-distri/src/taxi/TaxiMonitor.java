@@ -28,7 +28,6 @@ public class TaxiMonitor extends Thread{
                         for(int i = 0; i<5; i++){
                             mv.mover();
                             System.out.println("Hola Mundo");
-                            mv.detener();
                         }
                     } catch (RemoteException e) {
                         System.out.println("Error al seleccionar el taxi: " + e.getMessage());
