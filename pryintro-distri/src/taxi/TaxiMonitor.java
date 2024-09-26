@@ -6,14 +6,16 @@ import java.rmi.RemoteException;
 public class TaxiMonitor implements Runnable {
     private final ArrayList<Taxi> taxis;
     private InterfazServidor serverIn;
+    private boolean continuar;
     public TaxiMonitor(ArrayList<Taxi> taxis, InterfazServidor serverIn) {
         this.taxis = taxis;
         this.serverIn = serverIn;
+        this.continuar = true;
     }
 
     @Override
     public void run() {
-        while (true) {
+        while (continuar) {
             synchronized (taxis) {
                 if (taxis.size() >= 3) {
                     System.out.println("Se han registrado tres o más taxis.");
@@ -37,5 +39,8 @@ public class TaxiMonitor implements Runnable {
                 Thread.currentThread().interrupt(); // Manejar la interrupción
             }
         }
+    }
+    public void detener(){
+        this.continuar = false;
     }
 }
