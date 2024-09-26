@@ -45,12 +45,18 @@ public class ConexionTaxi{
                         int posy = serverIn.posTaxiY();
                         int velocidad = 0;
                         Taxi nuevo = new Taxi(id, posx, posy, velocidad);
+                        taxis.add(nuevo);
                         nuevo = serverIn.coorTaxi(nuevo, taxis);
                         System.out.println("*********************************************************");
                         System.out.println("Las coordenadas del taxi son: ["+nuevo.getPosx()+", "+nuevo.getPosy()+"].");
                         System.out.println("*********************************************************");
                         nuevo.añadirSuscriptor(serverIn);
-                        taxis.add(nuevo);
+                        for(int i = 0; i<taxis.size(); i++){
+                            Taxi taxii = taxis.get(i);
+                            if(taxii.getId().equals(nuevo.getId())){
+                                taxis.add(i, nuevo);
+                            }
+                        }
                     }
                     case 4 ->{
                         serverIn.imprimirTaxis();
