@@ -22,7 +22,7 @@ public class MovimientoTaxi extends Thread {
                 int nuevaPosY = (int) (Math.random() * serverIn.columnasMatriz());
                 
                 // Actualiza la posición del taxi en el servidor
-                serverIn.actualizarPosicionTaxi(taxi.getId(), nuevaPosX, nuevaPosY);
+                //serverIn.actualizarPosicionTaxi(taxi.getId(), nuevaPosX, nuevaPosY);
                 
                 // Actualiza la posición local
                 taxi.setPosx(nuevaPosX);

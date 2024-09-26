@@ -8,8 +8,9 @@ import java.rmi.Remote;
 import java.io.BufferedWriter;
 import java.io.FileWriter;
 import java.io.IOException;
+import taxi.TaxiLatidoPosicion;
 
-public class ImplementacionServidor extends UnicastRemoteObject implements InterfazServidor{
+public class ImplementacionServidor extends UnicastRemoteObject implements InterfazServidor, TaxiLatidoPosicion{
 
     ArrayList<ArrayList<String>> matriz = new ArrayList<ArrayList<String>>();
     ArrayList<Taxi> taxis = new ArrayList<>();
@@ -118,13 +119,18 @@ public class ImplementacionServidor extends UnicastRemoteObject implements Inter
     }
 
     public void actualizarPosicionTaxi(String idTaxi, int posX, int posY) throws RemoteException {
-    for (Taxi taxi : taxis) {
-        if (taxi.getId().equals(idTaxi)) {
-            taxi.setPosx(posX);
-            taxi.setPosy(posY);
-            System.out.println("Nueva posición del taxi " + idTaxi + ": [" + posX + ", " + posY + "]");
-            break;
+        for (Taxi taxi : taxis) {
+            if (taxi.getId().equals(idTaxi)) {
+                taxi.setPosx(posX);
+                taxi.setPosy(posY);
+                System.out.println("Nueva posición del taxi " + idTaxi + ": [" + posX + ", " + posY + "]");
+                break;
+            }
         }
     }
-}
+    @Override
+    public void actualizarPosicion(Taxi taxi){
+        System.out.println("Actualización de posición del taxi " + taxi.getId() + ": [" + taxi.getPosx() + ", " + taxi.getPosy() + "]");
+    }
+
 }

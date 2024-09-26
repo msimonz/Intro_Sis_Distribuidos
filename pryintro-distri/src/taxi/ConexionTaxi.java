@@ -50,6 +50,7 @@ public class ConexionTaxi{
                         System.out.println("*********************************************************");
                         System.out.println("Las coordenadas del taxi son: ["+nuevo.getPosx()+", "+nuevo.getPosy()+"].");
                         System.out.println("*********************************************************");
+                        nuevo.añadirSuscriptor(serverIn);
                         taxis.add(nuevo);
                     }
                     case 4 ->{
