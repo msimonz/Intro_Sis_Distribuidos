@@ -57,8 +57,6 @@ public class Taxi implements Serializable{
     }
     public void setPosx2(int posx) {
         this.posx = posx;
-        
-        notificarSuscriptores();
     }
 
     public int getPosy() {
