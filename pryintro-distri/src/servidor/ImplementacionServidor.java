@@ -87,10 +87,10 @@ public class ImplementacionServidor extends UnicastRemoteObject implements Inter
             }
         }
         System.out.println("");
-        for(int i = 0; i<taxis.size(); i++){
-            Taxi taxii = taxis.get(i);
+        for(Taxi taxii : taxis){
             if(taxii.getId().equals(taxi.getId())){
-                taxis.add(i, taxi);
+                taxii.setPosx(taxi.getPosx());
+                taxii.setPosy(taxi.getPosy());
             }
         }
         String contenido = "Se creó el Taxi "+taxi.getId()+" en la posición ["+taxi.getPosx()+", "+taxi.getPosy()+"]";

@@ -51,10 +51,10 @@ public class ConexionTaxi{
                         System.out.println("Las coordenadas del taxi son: ["+nuevo.getPosx()+", "+nuevo.getPosy()+"].");
                         System.out.println("*********************************************************");
                         nuevo.añadirSuscriptor(serverIn);
-                        for(int i = 0; i<taxis.size(); i++){
-                            Taxi taxii = taxis.get(i);
+                        for(Taxi taxii : taxis){
                             if(taxii.getId().equals(nuevo.getId())){
-                                taxis.add(i, nuevo);
+                                taxii.setPosx(nuevo.getPosx());
+                                taxii.setPosy(nuevo.getPosy());
                             }
                         }
                     }
