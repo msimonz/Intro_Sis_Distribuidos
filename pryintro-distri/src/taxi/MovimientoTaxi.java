@@ -1,6 +1,6 @@
 package taxi;
 import servidor.InterfazServidor;
-public class MovimientoTaxi extends Thread {
+public class MovimientoTaxi {
     private Taxi taxi;
     private InterfazServidor serverIn;
     private boolean continuar;
@@ -14,7 +14,7 @@ public class MovimientoTaxi extends Thread {
         
     }
    
-    public void mover() {
+    public void mover(){
         while (continuar) {
             try{
                 // Movimiento aleatorio
