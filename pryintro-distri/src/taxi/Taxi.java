@@ -53,11 +53,11 @@ public class Taxi implements Serializable{
     }
 
     public void setPosx(int posx) {
+        notificarSuscriptores();
         this.posx = posx;
     }
 
     public int getPosy() {
-        notificarSuscriptores();
         return posy;
     }
 
